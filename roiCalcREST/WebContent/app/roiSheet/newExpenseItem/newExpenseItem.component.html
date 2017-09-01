@@ -1,0 +1,11 @@
+<div>
+<form>
+
+	<input type='text' placeHolder='Item name' ng-model='expenseItem.expenseItem'><br>
+	<input type='text' placeHolder='One-Time Cost' ng-model='expenseItem.oneTimeCost'><br>
+	<input type='text' placeHolder='Monthly Cost' ng-model='expenseItem.monthlyCost'><br>
+	<input type='button' type='submit' value='Add Expense Item' ng-click='vm.onCreate({item : expenseItem}); vm.expenseItem={}'>
+
+
+</form>
+</div>

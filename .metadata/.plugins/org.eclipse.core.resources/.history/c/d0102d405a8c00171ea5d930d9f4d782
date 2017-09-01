@@ -1,0 +1,60 @@
+angular.module('appModule')
+.component('appComponent', {
+	templateUrl : 'app/appModule/appComponent/app.component.html',
+	controller : function(roiService, $filter, $scope){
+		var vm = this;
+		vm.items = [];
+		
+		//lists all expense items
+		vm.reloadExpenseItem = function(expenseItem){
+			roiService.indexOfExpenseItems().then(function(res){
+				vm.items = res.data;
+			})
+		}
+		vm.reloadExpenseItem();
+		
+		//lists all revenue items
+		vm.reloadRevenueItem = function(revenuItem){
+			roiService.indexOfRevenueItems().then(function(res){
+				vm.items = res.data;
+			})
+		}
+		vm.reloadRevenueItem();
+		
+		
+		$scope.$on('addItem', function(e, item){
+			console.log(item)
+		});
+		
+		//adds a revenue item
+		vm.addRevenueItem = function(revenueItem){
+			roiService.createRevenueItem(revenueItem).then(function(r){
+				vm.reloadRevenueItem();
+			});
+		}
+		
+		//adds an expense item
+		vm.addExpenseItem = function(expenseItem){
+			roiService.createExpenseItem(expenseItem).then(function(r){
+				vm.reloadExpenseItem();
+			});
+		}
+		
+		//updates an expense item
+		vm.updateExpenseItem = function(ei){
+			return roiService.updateExpenseItem(ei).then(function(r){
+				vm.reloadExpenseItem();
+				return r;
+			});
+		}
+		
+		//updates a revenue item
+		vm.updateRevenueItem = function(ri){
+			return roiService.updateExpenseItem(ei).then(function(r){
+				vm.reloadRevenueItem();
+				return r;
+			})
+		}
+	},
+	controllerAs: 'vm'
+});

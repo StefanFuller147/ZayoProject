@@ -1,0 +1,92 @@
+<table>Revenue Items
+	<thead> 
+	<!-- <button ng-click="vm.addRevenueItem(revenueItem)" >Add Revenue Item -->
+	<form>
+		<input type='text' placeHolder='Item name' ng-model='revenueItem.name'><br>
+		<input type='text' placeHolder='One-Time Cost' ng-model='revenueItem.oneTimeCost'><br>
+		<input type='text' placeHolder='Monthly Cost' ng-model='revenueItem.monthlyCost'><br>
+		<input type='button' type='submit' value='Add Revenue Item' ng-click='vm.addRevenueItem(revenueItem); vm.revenueItem={}' class="submitButton">
+	</form>
+	
+	<hr>
+		<th>name</th>
+		<th>One-Time</th>
+		<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="revenue in vm.revenueItem">
+			<td ng-model='revenueItem.id' ng-hide="true">{{revenue.id}}</td>
+			<td>{{revenue.name}}</td>
+			<td>${{revenue.oneTimeCost}}</td>
+			<td>${{revenue.monthlyCost}}</td>
+			<td><button ng-click="vm.updateRevenueItem(revenueItem)">Edit Item</td>
+			<td><button ng-click="vm.deleteRevenueItem(revenueItem.id)">Delete Item</td>
+		</tr>
+	</tbody>
+</table>
+<hr>
+
+<table>Expense Items
+<form>
+	<input type='text' placeHolder='Item name' ng-model='expenseItem.name'><br>
+	<input type='text' placeHolder='One-Time Cost' ng-model='expenseItem.oneTimeCost'><br>
+	<input type='text' placeHolder='Monthly Cost' ng-model='expenseItem.monthlyCost'><br>
+	<input type='button' type='submit' value='Add Expense Item' ng-click="vm.addExpenseItem(expenseItem)" class="submitButton">
+</form>
+<hr>
+	<th>name</th>
+	<th>One-Time</th>
+	<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="expense in vm.expenseItem">
+			<td>{{expense.name}}</td>
+			<td>${{expense.oneTimeCost}}</td>
+			<td>${{expense.monthlyCost}}</td>
+			<td><button ng-click="vm.updateExpenseItem(expenseItem)">Edit Item</td>
+			<td><button ng-click="vm.deleteExpenseItem()">Delete Item</td>
+			
+		</tr>
+	</tbody>
+
+</table>
+
+<hr>
+
+
+<table>
+		<thead>
+			<th>One-Time</th>
+			<th>Monthly</th>
+			<th>Total</th>
+		</thead>
+	<tbody>
+		<tr>
+			<td>Revenue: </td>
+			<td>${{vm.oneTimeRevenueTotal}}</td>
+			<td>${{vm.monthlyRevenueTotal}}</td>
+			<td>${{vm.yearlyRevenueTotal}}</td>
+		</tr>
+	
+		<tr>
+			<td>Expense: </td>
+			<td>${{vm.oneTimeExpenseTotal}}</td>
+			<td>${{vm.monthlyExpenseTotal}}</td>
+			<td>${{vm.yearlyExpenseTotal}}</td>
+		</tr>
+		</tbody>
+		</table>
+		<table>
+		<tbody>
+		<tr>
+			<td>monthly contribution profit: ${{vm.monthlyContributionProfit}}</td>
+		</tr>
+		<tr>
+			<td>Contribution Margin: {{vm.totalContributionMargin | number:2 | roi}}</td>
+		</tr>
+		<tr>
+			<td>Capital ROI: {{vm.capROI | number:2}} (Months)</td>
+		</tr>
+	</tbody>	
+	
+</table>

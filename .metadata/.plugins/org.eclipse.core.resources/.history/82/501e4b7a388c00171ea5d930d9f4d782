@@ -1,0 +1,34 @@
+<table>
+<thead>
+<th>name</th>
+<th>One-Time Cost</th>
+<th>Monthly Cost</th>
+</thead>
+<tbody>
+<tr ng-repeat="item in vm.revenueItem"></tr>
+<td>{{revenue.name}}</td>
+<td>{{revenue.oneTimeCost}}</td>
+<td>{{revenue.monthlyCost}}</td>
+<td><input ng-change="vm.updateRevenueItem" class="button" type="button"></td>
+<td><input ng-change="vm.deleteRevenueItem" class="button" type="button"></td>
+
+</tbody>
+</table>
+
+<table>
+<thead>
+<th>name</th>
+<th>One-Time Cost</th>
+<th>Monthly Cost</th>
+</thead>
+<tbody>
+<tr ng-repeat="item in vm.expenseItem"></tr>
+<td>{{expense.name}}</td>
+<td>{{expense.oneTimeCost}}</td>
+<td>{{expense.monthlyCost}}</td>
+<td><input ng-change="vm.updateExpenseItem" class="button" type="button" text="update"></td>
+<td><input ng-change="vm.deleteExpenseItem" class="button" type="button"></td>
+
+</tbody>
+
+</table>

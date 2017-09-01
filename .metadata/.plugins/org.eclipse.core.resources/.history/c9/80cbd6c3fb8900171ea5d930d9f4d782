@@ -1,0 +1,6 @@
+package data;
+
+public interface ItemDAO {
+//methods for CRUD revenue item 
+	public List<RevenueItem> index();
+}

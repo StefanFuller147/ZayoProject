@@ -1,0 +1,2 @@
+<!-- <h1>In appComponent.html</h1>-->
+<ng-view></ng-view>

@@ -1,0 +1,64 @@
+package controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import data.ExpenseItemDAO;
+import entities.ExpenseItem;
+
+@RestController
+public class ExpenseItemController {
+	
+	@Autowired
+	private ExpenseItemDAO eiDAO;
+	
+	//mapping test
+	@RequestMapping(value = "expenseItem/ping", method = RequestMethod.GET)
+	public String ping(){
+		return "I LIKE WHAT YOU GOT! FROM EXPENSE ITEM CONTROLLER";
+	}
+	
+	//gets a list of expense items
+	@RequestMapping(value = "expenseItem", method = RequestMethod.GET)
+	public List<ExpenseItem> index(){
+		return eiDAO.index();
+	}
+	
+	//gets an individual expense item
+	@RequestMapping(value = "expenseItem/{id}", method = RequestMethod.GET)
+	public ExpenseItem show(@PathVariable int id){
+		return eiDAO.show(id);
+	}
+	
+	//updates an existing expense item
+	@RequestMapping(value = "expenseItem/{id}", method = RequestMethod.PUT)
+	public ExpenseItem update(@PathVariable int id, @RequestBody String expenseItemJson){
+		try{
+			ObjectMapper mapper = new ObjectMapper();
+			ExpenseItem mappedExpenseItem = mapper .readValue(expenseItemJson, ExpenseItem.class);
+			return eiDAO.update(mappedExpenseItem, id);
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println("ERROR FROM EXPENSE ITEM UPDATE CONTROLLER");
+		}
+		return null;
+	}
+	
+	@RequestMapping(value = "expenseItem/{id}", method = RequestMethod.DELETE)
+	public boolean removeExpenseItem(@PathVariable int id){
+		return eiDAO.removeExpenseItem(id);
+	}
+	
+	
+	
+	
+	
+}

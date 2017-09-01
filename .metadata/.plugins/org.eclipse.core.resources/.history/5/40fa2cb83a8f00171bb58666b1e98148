@@ -1,0 +1,79 @@
+<table>
+	<thead>Revenue Items 
+	<button ng-click="vm.newExpenseItem()" >Add Revenue Item
+	<hr>
+		<th>name</th>
+		<th>One-Time</th>
+		<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="revenue in vm.revenueItem">
+			<td>{{revenue.name}}</td>
+			<td>${{revenue.oneTimeCost}}</td>
+			<td>${{revenue.monthlyCost}}</td>
+			<td><button ng-click="">Edit Item</td>
+			<td><button ng-click="">Delete Item</td>
+		</tr>
+	</tbody>
+</table>
+<hr>
+
+<table>Expense Items
+<button ng-click="">Add Expense Item
+<hr>
+	<th>name</th>
+	<th>One-Time</th>
+	<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="expense in vm.expenseItem">
+			<td>{{expense.name}}</td>
+			<td>${{expense.oneTimeCost}}</td>
+			<td>${{expense.monthlyCost}}</td>
+			<td><button ng-click="">Edit Item</td>
+			<td><button ng-click="">Delete Item</td>
+			
+		</tr>
+	</tbody>
+
+</table>
+
+<hr>
+
+
+<table>
+		<thead>
+			<th>One-Time</th>
+			<th>Monthly</th>
+			<th>Total</th>
+		</thead>
+	<tbody>
+		<tr>
+			<td>Revenue: </td>
+			<td>${{vm.oneTimeRevenueTotal}}</td>
+			<td>${{vm.monthlyRevenueTotal}}</td>
+			<td>${{vm.yearlyRevenueTotal}}</td>
+		</tr>
+	
+		<tr>
+			<td>Expense: </td>
+			<td>${{vm.oneTimeExpenseTotal}}</td>
+			<td>${{vm.monthlyExpenseTotal}}</td>
+			<td>${{vm.yearlyExpenseTotal}}</td>
+		</tr>
+		</tbody>
+		</table>
+		<table>
+		<tbody>
+		<tr>
+			<td>monthly contribution profit: ${{vm.monthlyContributionProfit}}</td>
+		</tr>
+		<tr>
+			<td>Contribution Margin: {{vm.totalContributionMargin | number:2 | roi}}</td>
+		</tr>
+		<tr>
+			<td>Capital ROI: {{vm.capROI | number:2}} (Months)</td>
+		</tr>
+	</tbody>	
+	
+</table>

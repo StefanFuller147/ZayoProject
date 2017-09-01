@@ -1,0 +1,39 @@
+package data;
+
+import java.util.List;
+
+import entities.RevenueItem;
+
+public class RevenueItemDAOImpl implements RevenueItemDAO{
+
+	@Override
+	public List<RevenueItem> index() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RevenueItem show(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RevenueItem create(RevenueItem revenueItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RevenueItem update(int id, RevenueItem revenueItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean removeRevenueItem(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

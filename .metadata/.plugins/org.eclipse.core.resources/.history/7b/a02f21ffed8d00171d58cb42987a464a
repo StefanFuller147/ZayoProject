@@ -1,0 +1,30 @@
+var app = angular.module('ngCalculator', ['ngRoute']); 
+console.log("inside ngApp")
+app.config(function($routeProvider){ 
+  console.log("INSIDE config: routes");
+  $routeProvider
+		.when('/', {
+			template: `<list-all-items-component items="$resolve.myData"></list-all-items-component>`, // use templateURL to reference a different file
+				
+			resolve : {
+//					     auth : function(authenticationService) {
+//					       // use an authService to perform an authentication check
+//					     },
+				myData : function(roiService, $route, $location) {
+						console.log('in resonlve func');
+		   		        return roiService.indexOfRevenueItems() 
+		   		         .then(function(res) {
+		   		           console.log("IN .THEN in /");
+		   		           console.log(res.data);
+		   		           return res.data; // return the JSON data of the fetched debate.
+		   		         })
+		   		         .catch(function(err) {
+		   		           // if the id was not found, redirect to not found
+		   		           if (err.status == 404) {
+		   		             $location.path('/_404');
+		   		           }
+		   		         })
+		   		       } 
+	   		     }
+		})
+});

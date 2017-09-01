@@ -1,0 +1,14 @@
+package data;
+
+import java.util.List;
+
+import entities.RevenueItem;
+
+public interface RevenueItemDAO {
+//methods for CRUD revenue item 
+	public List<RevenueItem> index();
+	public RevenueItem show(int id);
+	public RevenueItem create(RevenueItem revenueItem);
+	public RevenueItem update(int id, RevenueItem revenueItem);
+	
+}

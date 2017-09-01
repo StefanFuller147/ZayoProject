@@ -1,0 +1,29 @@
+package controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import data.RevenueItemDAO;
+import entities.RevenueItem;
+
+@RestController
+public class RevenueItemController {
+	@Autowired 
+	private RevenueItemDAO itemDAO;
+	
+	@RequestMapping(value = "ping", method = RequestMethod.GET)
+	public String ping(){
+		return "I LIKE WHAT YOU GOT!";
+	}
+	//shows a list of Revenue Items
+//	@RequestMapping(value = "revenueItems", method = RequestMethod.GET)
+//	public List <RevenueItem> index(){
+//		return itemDAO.index();
+//	}
+	
+
+}

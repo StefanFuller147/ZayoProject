@@ -1,0 +1,3 @@
+angular.module('appModule', ['roiCalc', 'revenueItem','expenseItem', 'listAllItems'])
+
+console.log("hello world");

@@ -1,0 +1,14 @@
+var app = angular.module('ngCalculator');
+console.log("in app component");
+
+function appController() {
+	var vm = this;
+	
+	console.log("in app.component function");
+}
+app.component('appComponent', {
+	// templateUrl : `<ng-view></ng-view>`,
+	templateUrl: "<listAllItems.component.html></listAllItems.component.html>"
+
+	controller : appController
+});

@@ -1,0 +1,91 @@
+<table>Revenue Items
+	<thead> 
+	<!-- <button ng-click="vm.addRevenueItem(revenueItem)" >Add Revenue Item -->
+	<form>
+		<input type='text' placeHolder='Item name' ng-model='revenueItem.name'><br>
+		<input type='text' placeHolder='One-Time Cost' ng-model='revenueItem.oneTimeCost'><br>
+		<input type='text' placeHolder='Monthly Cost' ng-model='revenueItem.monthlyCost'><br>
+		<input type='button' type='submit' value='Add Revenue Item' ng-click='vm.addRevenueItem(revenueItem); vm.revenueItem={}' class="submitButton">
+	</form>
+	
+	<hr>
+		<th>name</th>
+		<th>One-Time</th>
+		<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="revenue in vm.revenueItem">
+			<td class="revenue{{revenue.id}}"><input ng-model="revenue.name" value="${{revenue.name}}"></td>
+			<td><input ng-model="revenue.oneTimeCost" value="${{revenue.oneTimeCost}}"></td>
+			<td>${{revenue.monthlyCost}}</td>
+			<td><button ng-click="vm.updateRevenueItem(revenue)">Edit Item</td>
+			<td><button ng-click="vm.deleteRevenueItem(revenue.id)">Delete Item</td>
+		</tr>
+	</tbody>
+</table>
+<hr>
+
+<table>Expense Items
+<form>
+	<input type='text' placeHolder='Item name' ng-model='expenseItem.name'><br>
+	<input type='text' placeHolder='One-Time Cost' ng-model='expenseItem.oneTimeCost'><br>
+	<input type='text' placeHolder='Monthly Cost' ng-model='expenseItem.monthlyCost'><br>
+	<input type='button' type='submit' value='Add Expense Item' ng-click="vm.addExpenseItem(expenseItem)" class="submitButton">
+</form>
+<hr>
+	<th>name</th>
+	<th>One-Time</th>
+	<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="expense in vm.expenseItem">
+			<td class="expense{{expense.id}}"><input ng-model="expense.name" value="${{expense.name}}"></td>
+			<td><input ng-model="expense.oneTimeCost" value="${{expense.oneTimeCost}}"></td>
+			<td><input ng-model="expense.monthlyCost" value="${{expense.monthlyCost}}"></td>
+			<td><button ng-click="vm.updateExpenseItem(expense)">Edit Item</td>
+			<td><button ng-click="vm.deleteExpenseItem(expense.id)">Delete Item</td>
+			
+		</tr>
+	</tbody>
+
+</table>
+
+<hr>
+
+
+<table>
+		<thead>
+			<th>One-Time</th>
+			<th>Monthly</th>
+			<th>Total</th>
+		</thead>
+	<tbody>
+		<tr>
+			<td>Revenue: </td>
+			<td>${{vm.oneTimeRevenueTotal}}</td>
+			<td>${{vm.monthlyRevenueTotal}}</td>
+			<td>${{vm.yearlyRevenueTotal}}</td>
+		</tr>
+	
+		<tr>
+			<td>Expense: </td>
+			<td>${{vm.oneTimeExpenseTotal}}</td>
+			<td>${{vm.monthlyExpenseTotal}}</td>
+			<td>${{vm.yearlyExpenseTotal}}</td>
+		</tr>
+		</tbody>
+		</table>
+		<table>
+		<tbody>
+		<tr>
+			<td>monthly contribution profit: ${{vm.monthlyContributionProfit}}</td>
+		</tr>
+		<tr>
+			<td>Contribution Margin: {{vm.totalContributionMargin | number:2 | roi}}</td>
+		</tr>
+		<tr>
+			<td>Capital ROI: {{vm.capROI | number:2}} (Months)</td>
+		</tr>
+	</tbody>	
+	
+</table>

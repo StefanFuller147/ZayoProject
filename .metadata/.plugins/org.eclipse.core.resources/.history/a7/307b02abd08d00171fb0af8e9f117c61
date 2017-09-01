@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+<meta charset="utf-8">
+<title>ROI Calculator</title>
+<!-- <link rel="stylesheet" href="./app/roiShow/roi.css"> -->
+
+<script src="./js/angular.min.js"></script>
+<script src="./js/angular-route.min.js"></script>
+<script src="./js/angular-cookies.min.js"></script>
+
+<script src="./app/appModule/appComponent/app.component.js"></script>
+<script src="./app/appModule/app.module.js"></script>
+
+<script src="./app/roiSheet/newExpenseItem/newExpenseItem.component.js"></script>
+<script src="./app/roiSheet/newRevenueItem/newRevenueItem.component.js"></script>
+<script src="./app/roiSheet/listAllItems/listAllItems.component.js"></script>
+<script src="./app/roiSheet/roiShow/roi.filter.js"></script>
+<script src="./app/roiSheet/roiShow/roi.module.js"></script>
+<script src="./app/roiSheet/roiShow/roi.service.js"></script>
+
+</head>
+<body>
+	<app-component>Application Loading...</app-component>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+package data;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import entities.ExpenseItem;
+
+public class ExpenseItemDAOImpl implements ExpenseItemDAO {
+	
+	@PersistenceContext
+	private EntityManager em;
+
+	//gets the list of expense items
+	@Override
+	public List<ExpenseItem> index() {
+		String query = "SELECT ei FROM ExpenseItem ei";
+		List<ExpenseItem> expenseItem = em.createQuery(query, ExpenseItem.class).getResultList();
+		return expenseItem;
+	}
+
+	//gets an individual expense item
+	@Override
+	public ExpenseItem show(int id) {
+		ExpenseItem ei = em.find(ExpenseItem.class, id);
+		return ei;
+	}
+
+	//creates an expense item
+	@Override
+	public ExpenseItem create(ExpenseItem expenseItem) {
+		em.persist(expenseItem);
+		em.flush();
+		return expenseItem;
+	}
+
+	//updates an expense item
+	@Override
+	public ExpenseItem update(ExpenseItem expenseItem, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	//deletes an expense item
+	@Override
+	public boolean removeExpenseItem(ExpenseItem expenseItem, int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

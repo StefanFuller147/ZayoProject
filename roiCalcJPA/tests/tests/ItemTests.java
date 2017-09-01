@@ -1,0 +1,51 @@
+package tests;
+
+import static org.junit.Assert.assertEquals;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import entities.ExpenseItem;
+import entities.RevenueItem;
+
+public class ItemTests {
+	private EntityManagerFactory emf = null;
+	private EntityManager em = null;
+	
+	
+	@Before
+	public void setUp(){
+	emf = Persistence.createEntityManagerFactory("roiCalc");
+	em = emf.createEntityManager();
+	}
+	
+	@After
+	public void tearDown(){
+		em.close();
+		emf.close();
+	}
+	
+	@Test
+	public void test(){
+		boolean willPass = true;
+		assertEquals(willPass, true);
+	}
+	
+	@Test
+	public void getRevenueItem(){
+		RevenueItem ri = em.find(RevenueItem.class, 1);
+		assertEquals("Test Item", ri.getName());
+	}
+	
+	@Test
+	public void getExpenseItem(){
+		ExpenseItem ei = em.find(ExpenseItem.class, 1);
+		assertEquals("expense item 1", ei.getName());
+	}
+	
+}

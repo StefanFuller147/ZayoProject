@@ -1,0 +1,138 @@
+angular.module('ngCalculator')
+.factory('roiService', function($filter, $http, $rootScope){
+	var service = {}
+	
+	//gets all revenue items
+	service.indexOfRevenueItems = function(){
+		return $http({
+			method: 'GET',
+				url: 'api/revenueItem'
+		})
+	}
+	//gets all expense items
+	service.indexOfExpenseItems = function(){
+		return $http({
+			method: 'GET',
+				url: 'api/expenseItem'
+		})
+	}
+	
+	//creates a new revenue item
+	service.createRevenueItem = function(revenueItem){
+		return $http({
+			method: 'POST',
+			url: 'api/revenueItem',
+			headers:{
+				'Content_type':'application/json'
+			},
+			data: revenueItem
+		})
+		.then(function(res){
+			$rootScope.$broadcast('addRevenueItem', res.data);
+			return res;
+		})
+	};
+	
+	//creates a new expense item
+	service.createExpenseItem = function(expenseItem){
+		return $http({
+			method: 'POST',
+			url: 'api/expenseItem',
+			headers:{
+				'Content_type':'application/json'
+			},
+			data: expenseItem
+		})
+		.then(function(res){
+			$rootScope.$broadcast('addExpenseItem', res.data);
+			return res;
+		})
+	};
+	//updates an expense item
+	service.updateExpenseItem = function(expenseItem, id){
+		return $http({
+			method: 'PUT',
+			url: 'api/expenseItem/{id}',
+			headers:{
+				'Content_type' : 'application/json'
+			},
+			data: expenseItem
+		})
+		.then(function(res){
+			$rootScope.$broadcast('updateExpenseItem', res.data);
+			return res;
+		})
+	};
+	
+	
+	//updates a revenue item
+	service.updateRevenueItem = function(revenueItem, id){
+		return $http({
+			method: 'PUT',
+			url: 'api/revenueItem/{id}',
+			headers:{
+				'Content_type': 'application/json'
+			},
+			data: revenueItem				
+			})
+			.then(function(res){
+				$rootScope.$broadcast('updateRevenueItem', res.data);
+				return res;
+		})
+	};
+	
+	
+	
+	//removes an expense item
+	service.removeAnExpenseItem = function(expenseItem, id){
+		return $http({
+			method: 'DELETE',
+			url: 'api/expenseItem/{id}'
+		})
+	};
+	
+	//removes a revenue item
+	service.removeARevenueItem = function(revenueItem, id){
+		return $http({
+			method: 'DELETE',
+			url: 'api/revenueItem/{id}
+		})
+	};
+	
+	//gets the monthly total for all one-time cost revenue items
+	//some code
+	service.monthlyTotalForAllOneTimeRevenueItems = function(revenueItem){
+		return 
+	}
+	
+	//gets the monthly total for all one-time cost expense items
+	service.monthlyTotalForAllOneTimeExpenseItems = function(expenseItem){
+		return
+	}
+	
+	//gets the monthly total for all monthly revenue cost items
+	service.monthlyTotalForAllMonthlyRevenueItems = function(revenueItem){
+		return
+	}
+	
+	//gets the monthly total for all monthly expense items
+	service.monthlyTotalForMonthlyExpenseItems = function(expenseItem){
+		return
+	}
+	
+	//gets the yearly total for all monthly and one-time revenue items
+	service.yearlyTotalForMonthlyAndOneTimeRevenueItems = function(revenueItem){
+		return
+	}
+	
+	//gets the yearly total for all monthly and one-time expense items
+	service.yearlyTotalForMonthlyAndOneTimeExpenseItems = function(expenseItem){
+		return
+	}
+	
+	
+	return service;
+	
+	
+	
+});

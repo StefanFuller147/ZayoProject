@@ -1,0 +1,20 @@
+angular.module('roiCalc')
+.component('newExpenseItem',{
+	templateUrl : 'roiSheet/newExpenseItem/newExpenseItem.component.html',
+	controller : (roiService){
+		var vm = this;
+		vm.roiCount = 0;
+		
+		var getRoiCount = function(){
+			roiService.index()
+			.then(function(res){
+				vm.roiCount = res.data.length
+			})
+		};
+		getRoiCount();
+	},
+	controllerAs : 'vm',
+	bindings : {
+		onCreate : '&'
+	}
+})

@@ -1,0 +1,45 @@
+package data;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import entities.RevenueItem;
+
+public class RevenueItemDAOImpl implements RevenueItemDAO{
+	@PersistenceContext
+	private EntityManager em;
+
+	@Override
+	public List<RevenueItem> index() {
+		String query = "SELECT ri FROM RevenueItem ri";
+		List<RevenueItem> revenueItem = em.createQuery(query, RevenueItem.class).getResultList();
+		return revenueItem;
+	}
+
+	@Override
+	public RevenueItem show(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RevenueItem create(RevenueItem revenueItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RevenueItem update(int id, RevenueItem revenueItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean removeRevenueItem(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,4 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/roiCalcREST/WebContent/WEB-INF/Calc-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/roiCalcREST/WebContent/WEB-INF/roiCalc-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<activePage index\="0"/>
+com.springsource.config.ui.prefs.tabs.dialog=always
+eclipse.preferences.version=1

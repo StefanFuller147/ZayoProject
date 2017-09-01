@@ -1,0 +1,59 @@
+<table>
+	<thead>Revenue Items
+	<hr>
+		<th>name</th>
+		<th>One-Time</th>
+		<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="revenue in vm.revenueItem">
+			<td>{{revenue.name}}</td>
+			<td>${{revenue.oneTimeCost}}</td>
+			<td>${{revenue.monthlyCost}}</td>
+			<td><input class="button" type="button"></td>
+		</tr>
+	</tbody>
+</table>
+<hr>
+
+<table>Expense Items
+<hr>
+	<th>name</th>
+	<th>One-Time</th>
+	<th>Monthly</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="expense in vm.expenseItem">
+			<td>{{expense.name}}</td>
+			<td>${{expense.oneTimeCost}}</td>
+			<td>${{expense.monthlyCost}}</td>
+			<td><input class="button" type="button"></td>
+		</tr>
+	</tbody>
+
+</table>
+
+<hr>
+
+
+<table>
+		<thead>
+			<th>One-Time</th>
+			<th>Monthly</th>
+			<th>Total</th>
+		</thead>
+	<tbody>
+		<tr>
+			<td>Revenue</td>
+			<td>${{vm.revenueTotal}}</td>
+			<td>${{vm.revenueTotal}}</td>
+		</tr>
+	
+		<tr>
+			<td>Expense</td>
+			<td>${{vm.expenseTotal}}</td>
+			<td>${{vm.expenseTotal}}</td>
+		</tr>
+	</tbody>	
+	
+</table>

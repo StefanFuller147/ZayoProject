@@ -1,0 +1,29 @@
+2017-08-25 16:41:38,556 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-08-25 17:41:20,600 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-08-25 18:42:46,693 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @3784685ms
+2017-08-25 18:42:46,799 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2017-08-25 18:42:46,838 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@7c94fe96{/help,null,AVAILABLE}
+2017-08-25 18:42:46,843 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4eb46e6c{HTTP/1.1,[http/1.1]}{127.0.0.1:60101}
+2017-08-25 18:42:46,843 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @3784835ms
+2017-08-28 19:48:35,350 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@4eb46e6c{HTTP/1.1,[http/1.1]}{127.0.0.1:0}
+2017-08-28 19:48:35,363 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@7c94fe96{/help,null,UNAVAILABLE}
+2017-08-28 19:51:04,087 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-08-30 18:33:16,782 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-08-30 18:36:37,743 [Worker-10] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: SyneChronJPA:SyneChronJPA:0.0.1-SNAPSHOT @ /Users/stefanfuller/Downloads/Library-master/SyneChronJPA/pom.xml.
+2017-08-30 18:36:38,259 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-08-30 18:36:38,264 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2017-08-30 18:36:38,272 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-08-30 18:36:38,273 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/stefanfuller/Downloads/Library-master/SyneChronJPA/src/test/resources
+2017-08-30 18:36:39,195 [Worker-18] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: SyneChronJPA:SyneChronJPA:0.0.1-SNAPSHOT @ /Users/stefanfuller/Downloads/Library-master/SyneChronJPA/pom.xml.
+2017-08-30 18:36:39,290 [Worker-18] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: SyneChronWEB:SyneChronWEB:0.0.1-SNAPSHOT @ /Users/stefanfuller/Downloads/Library-master/SyneChronWEB/pom.xml.
+2017-08-30 18:36:40,387 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-08-30 18:36:40,392 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2017-08-30 18:36:40,395 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-08-30 18:36:40,395 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/stefanfuller/Downloads/Library-master/SyneChronJPA/src/test/resources
+2017-08-30 18:36:40,821 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-08-30 18:36:40,821 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/stefanfuller/Downloads/Library-master/SyneChronWEB/src/main/resources
+2017-08-30 18:36:40,823 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-08-30 18:36:40,827 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/stefanfuller/Downloads/Library-master/SyneChronWEB/src/test/resources
+2017-08-30 19:30:38,782 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-08-31 10:51:33,659 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-01 11:11:29,111 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

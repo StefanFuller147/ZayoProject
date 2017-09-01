@@ -1,0 +1,24 @@
+package controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import entities.ExpenseItem;
+
+@RestController
+public class ExpenseItemController {
+	
+	@Autowired
+	private ExpenseItem ei;
+	
+	@RequestMapping(value = "expenseItem/ping", method = RequestMethod.GET)
+	public String ping(){
+		return "I LIKE WHAT YOU GOT! FROM EXPENSE ITEM CONTROLLER";
+	}
+	
+	
+	
+	
+}

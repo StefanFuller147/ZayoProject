@@ -1,0 +1,136 @@
+angular.module('ngCalculator')
+.component('listAllItemsComponent',{
+	templateUrl : './app/roiSheet/listAllItems/listAllItems.component.html',
+	controller : function(roiService, $filter, $scope){
+		var vm = this;
+		vm.revenueItem = [];
+		vm.expenseItem = [];
+		vm.oneTimeExpenseTotal = 0;
+		vm.oneTimeRevenueTotal = 0;
+		vm.monthlyExpenseTotal = 0;
+		vm.monthlyRevenueTotal = 0;
+		vm.yearlyExpenseTotal = 0;
+		vm.yearlyRevenueTotal = 0;
+		vm.totalContributionProfit = 0;
+		vm.totalContributionMargin = 0;
+		vm.monthlyContributionProfit = 0;
+		//lists all expense items
+		vm.reloadExpenseItem = function(expenseItem){
+			roiService.indexOfExpenseItems().then(function(res){
+				console.log(res.data);
+				vm.expenseItem = res.data;
+				vm.calculateExpense();
+			})
+		}
+		vm.reloadExpenseItem();
+		
+		$scope.$on('addExpenseItem', function(e, expenseItem){
+			console.log(expenseItem)
+		})
+		//lists all revenue items
+		vm.reloadRevenueItem = function(revenueItem){
+			roiService.indexOfRevenueItems().then(function(res){
+				console.log(res.data);
+				vm.revenueItem = res.data;
+				vm.calculateRevenue();
+			})
+		}
+		vm.reloadRevenueItem();
+		
+		$scope.$on('addRevenueItem', function(e, revenueItem){
+			console.log(revenueItem)
+		});
+		
+		//adds a revenue item
+		vm.addRevenueItem = function(revenueItem){
+			roiService.createRevenueItem(revenueItem).then(function(r){
+				vm.reloadRevenueItem();
+			});
+		}
+		
+		//adds an expense item
+		vm.addExpenseItem = function(expenseItem){
+			roiService.createExpenseItem(expenseItem).then(function(r){
+				vm.reloadExpenseItem();
+			});
+		}
+		
+		//updates an expense item
+		vm.updateExpenseItem = function(ei){
+			return roiService.updateExpenseItem(ei).then(function(r){
+				vm.reloadExpenseItem();
+				return r;
+			});
+		}
+		
+		//updates a revenue item
+		vm.updateRevenueItem = function(ri){
+			return roiService.updateExpenseItem(ri).then(function(r){
+				vm.reloadRevenueItem();
+				return r;
+			})
+		}
+		//calculates the expenses for the year 
+		vm.calculateExpense = function(){
+			for(var i = 0; i < vm.expenseItem.length; i++){
+				vm.oneTimeExpenseTotal += vm.expenseItem[i].oneTimeCost;
+			}
+			for(var i = 0; i < vm.expenseItem.length; i++){
+				vm.monthlyExpenseTotal += vm.expenseItem[i].monthlyCost;
+				console.log("monthly total sum for expense item " + vm.monthlyExpenseTotal[i])
+			}
+			vm.yearlyExpenseTotal = vm.oneTimeExpenseTotal +  vm.monthlyExpenseTotal * 12;
+			
+			console.log(vm.yearlyExpenseTotal)
+		}
+		//calculates the revenue for the month and year
+		vm.calculateRevenue = function(){
+			for(var i = 0; i < vm.revenueItem.length; i++){
+				vm.oneTimeRevenueTotal += vm.revenueItem[i].oneTimeCost;
+			}
+			for(var i = 0; i < vm.revenueItem.length; i++){
+				vm.monthlyRevenueTotal += vm.revenueItem[i].monthlyCost;
+				console.log("monthly total sum for revenue item " + vm.monthlyRevenueTotal[i])
+			}
+			vm.yearlyRevenueTotal = vm.oneTimeRevenueTotal + vm.monthlyRevenueTotal * 12;
+
+			console.log(vm.yearlyRevenueTotal)
+			vm.calculateTotalContributionProfit();
+			vm.calculateMonthlyContributionProfit();
+			vm.calculateContributionMargin();
+			vm.calculateCapitalROI();
+
+		}
+		
+		//calculates the total contribution profit
+		vm.calculateTotalContributionProfit = function(){
+			vm.totalContributionProfit = (vm.yearlyRevenueTotal - vm.yearlyExpenseTotal);
+			console.log(vm.totalContributionProfit)
+		}
+		
+		//calculates the monthly contribution profit
+		vm.calculateMonthlyContributionProfit = function(){
+			
+			vm.monthlyContributionProfit = (vm.monthlyRevenueTotal - vm.monthlyExpenseTotal);
+			console.log(vm.monthlyContributionProfit)
+		}
+		
+		//calculates contribution margin
+		vm.calculateContributionMargin = function(){
+			vm.totalContributionMargin = vm.totalContributionProfit / vm.yearlyRevenuetotal
+			console.log("1" +vm.totalContributionProfit)
+			console.log("2" +vm.yearlyTotalRevenue)
+			console.log("Calculating contribution margin "+vm.totalContributionMargin)
+		}
+		
+		
+		//calculates the Capital ROI
+		vm.calculateCapitalROI = function(){
+			vm.calculateCapitalROI = (vm.oneTimeExpenseTotal - vm.oneTimeRevenueTotal) / vm.monthlyContributionProfit
+		}
+	},
+	controllerAs: 'vm',
+	bindings : {
+		items : "<"
+	}
+});

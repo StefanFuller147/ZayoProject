@@ -1,0 +1,11 @@
+package data;
+
+import java.util.List;
+
+import entities.ExpenseItem;
+
+public interface ExpenseItemDAO {
+	public List<ExpenseItem> index();
+	public ExpenseItem show(int id);
+	public ExpenseItem update(ExpenseItem expenseItem, int id);
+}

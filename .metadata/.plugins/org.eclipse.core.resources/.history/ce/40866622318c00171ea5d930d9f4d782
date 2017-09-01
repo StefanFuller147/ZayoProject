@@ -1,0 +1,8 @@
+angular.module('roiCalc').factory('roiService', function($filter, $http){
+	var service = {}
+	
+	//gets all revenue items
+	service.index = function(){
+		return
+	}
+});

@@ -1,0 +1,28 @@
+package entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "revenue_item")
+public class ExpenseItem {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	//fields
+	private int id;
+	@Column(name = "one_time_cost")
+	private int oneTimeCost;
+	@Column(name = "monthly_cost")
+	private int monthlyCost;
+	private String name;
+	
+	
+	
+	
+}

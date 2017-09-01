@@ -1,0 +1,10 @@
+package tests;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+public class JunitTests {
+	private EntityManagerFactory emf = null;
+	private EntityManager em = null;
+	
+}
