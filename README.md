@@ -3,7 +3,7 @@ In this project I was tasked to create a functional CRUD ROI calculator. One tha
 one-time, as well as monthly costs. From there it would calculate several other things, such as total revenue and expense. 
 Monthly contribution profits, total contribution profits, contribution margins, and capital ROI.
 
-#Technologies
+# Technologies
 -Java
 -AngularJS
 -STS
